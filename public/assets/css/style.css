@@ -7158,3 +7158,20 @@ background-color: #888888;
 	margin-bottom: 65px;
 	padding-left: 40px;
 }
+
+.mb-4{
+ color: red;
+ font-size: 18px;
+}
+
+.forgetPass{
+    font-size: 13px;
+    line-height: 19px;
+    color: #666666;
+    float: right;
+    padding: 1px 8px 0 0;
+    margin-top: 13px;
+}
+.forgetPass:hover{
+    color: red;
+}
