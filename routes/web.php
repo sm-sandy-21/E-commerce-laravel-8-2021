@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Livewire\Admin\AdminDashboard;
 use App\Http\Livewire\CartComponet;
 use App\Http\Livewire\CheckoutComponet;
 use App\Http\Livewire\ContactComponet;
 use App\Http\Livewire\HomeComponet;
 use App\Http\Livewire\ShopComponet;
+use App\Http\Livewire\User\UserDashbord;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +32,15 @@ Route::get('/contact',ContactComponet::class);
 
 
 
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function(){
+    Route::get('/user/dashboard',UserDashbord::class)->name('user.dashboard');
+});
+
+Route::middleware(['auth:sanctum', 'verified','adminAuth'])->group(function(){
+    Route::get('/admin/dashboard',AdminDashboard::class)->name('admin.dashboard');
+});
