@@ -5,6 +5,7 @@ use App\Http\Livewire\CartComponet;
 use App\Http\Livewire\CheckoutComponet;
 use App\Http\Livewire\ContactComponet;
 use App\Http\Livewire\HomeComponet;
+use App\Http\Livewire\ProductDetailsComponet;
 use App\Http\Livewire\ShopComponet;
 use App\Http\Livewire\User\UserDashbord;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,7 @@ Route::get('/shop',ShopComponet::class);
 Route::get('/cart',CartComponet::class);
 Route::get('/checkout',CheckoutComponet::class);
 Route::get('/contact',ContactComponet::class);
+Route::get('/product/{slug}',ProductDetailsComponet::class)->name('product.details');
 
 
 

@@ -232,7 +232,7 @@ html[xmlns] .flexslider .slides {
 }
 .flex-control-thumbs {
   margin: 5px 0 0;
-  position: static;
+  position: relative;
   overflow: hidden;
 }
 .flex-control-thumbs li {
@@ -273,3 +273,5 @@ html[xmlns] .flexslider .slides {
     right: 10px;
   }
 }
+
+
