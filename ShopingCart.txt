@@ -1,0 +1,31 @@
+composer require hardevine/shoppingcart
+
+config/app.php file.
+Add a new line to the providers array:
+
+          Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class
+
+And optionally add a new line to the aliases array:
+
+           'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+
+
+php artisan vendor:publish --provider="Gloudemans\Shoppingcart\ShoppingcartServiceProvider" --tag="migrations"
+
+app/Http/Livewire/ShopComponet.php
+use Cart;
+  public function store($product_id,$product_name,$product_price)
+    {
+        Cart::add($product_id,$product_name,1,$product_price)->associate('App\Models\Product');
+        session()->flash('success_message','Item added in cart');
+        return redirect()->route('product.cart');
+    }
+
+Add to cart Click event    
+                  <a href="#" class="btn add-to-cart" wire:click.prevent="store({{$item->id}},'{{$item->name}}',{{$item->regular_price}})">Add To Cart</a>
+
+resources/views/livewire/cart-componet.blade.php
+
+1.@if (Cart::count()>0)
+           
+  2.@foreach (Cart::content() as $item)
